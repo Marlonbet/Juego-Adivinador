@@ -1,187 +1,40 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Adivina el Número</title>
-  <style>
-    body {
-      font-family: 'Arial', sans-serif;
-      text-align: center;
-      background: linear-gradient(to right, #00c6ff, #0072ff);
-      color: white;
-      margin: 0;
-      padding: 0;
-    }
-
-    h1 {
-      font-size: 2.5em;
-      margin: 20px 0;
-    }
-
-    .game-container {
-      background: rgba(0, 0, 0, 0.5);
-      padding: 20px;
-      margin: 20px auto;
-      border-radius: 15px;
-      width: 90%;
-      max-width: 400px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-    }
-
-    input {
-      font-size: 1.2em;
-      padding: 10px;
-      width: 80%;
-      max-width: 200px;
-      border: none;
-      border-radius: 10px;
-      margin: 10px 0;
-      outline: none;
-    }
-
-    button {
-      font-size: 1.2em;
-      padding: 10px 20px;
-      margin: 10px;
-      border: none;
-      border-radius: 10px;
-      background-color: #ff9800;
-      color: white;
-      cursor: pointer;
-      transition: 0.3s ease;
-    }
-
-    button:hover {
-      background-color: #f57c00;
-    }
-
-    .reset {
-      background-color: #e91e63;
-    }
-
-    .reset:hover {
-      background-color: #c2185b;
-    }
-
-    .message {
-      font-size: 1.2em;
-      margin: 20px 0;
-      line-height: 1.5;
-    }
-
-    .winner {
-      font-size: 1.5em;
-      font-weight: bold;
-      color: #4caf50;
-    }
-
-    .loser {
-      font-size: 1.5em;
-      font-weight: bold;
-      color: #f44336;
-    }
-
-    .attempts {
-      font-size: 1.2em;
-      margin-top: 10px;
-    }
-
-    @media (max-width: 600px) {
-      h1 {
-        font-size: 2em;
-      }
-
-      button {
-        font-size: 1em;
-        padding: 10px 15px;
-      }
-
-      input {
-        font-size: 1em;
-      }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reloj Digital</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #282c34;
+            color: white;
+        }
+        #reloj {
+            font-size: 60px;
+        }
+    </style>
 </head>
 <body>
-  <h1>¡Adivina el Número!</h1>
+    <div id="reloj"></div>
 
-  <div class="game-container">
-    <p>Intenta adivinar el número secreto entre <strong>1 y 100</strong>.</p>
-    <p class="attempts">Intentos restantes: <span id="attempts">10</span></p>
+    <script>
+        function actualizarReloj() {
+            const ahora = new Date();
+            const horas = ahora.getHours().toString().padStart(2, '0');
+            const minutos = ahora.getMinutes().toString().padStart(2, '0');
+            const segundos = ahora.getSeconds().toString().padStart(2, '0');
 
-    <input type="number" id="guess" min="1" max="100" placeholder="Ingresa tu número">
-    <button onclick="checkGuess()">Adivinar</button>
-    <p class="message" id="message"></p>
-  </div>
+            document.getElementById('reloj').textContent = `${horas}:${minutos}:${segundos}`;
+        }
 
-  <button class="reset" onclick="resetGame()">Reiniciar Juego</button>
-
-  <script>
-    // Variables del juego
-    let secretNumber = Math.floor(Math.random() * 100) + 1;
-    let attempts = 10;
-
-    // Animaciones y efectos
-    function flashMessage(text, className) {
-      const message = document.getElementById('message');
-      message.textContent = text;
-      message.className = `message ${className}`;
-    }
-
-    // Comprobar el número ingresado
-    function checkGuess() {
-      const guess = Number(document.getElementById('guess').value);
-
-      if (!guess || guess < 1 || guess > 100) {
-        flashMessage('Por favor, ingresa un número válido entre 1 y 100.', 'loser');
-        return;
-      }
-
-      if (guess === secretNumber) {
-        flashMessage(`¡🎉 Felicidades! Adivinaste el número ${secretNumber}.`, 'winner');
-        disableInput();
-        celebrate();
-      } else if (guess < secretNumber) {
-        attempts--;
-        flashMessage(`El número es mayor que ${guess}.`, '');
-      } else {
-        attempts--;
-        flashMessage(`El número es menor que ${guess}.`, '');
-      }
-
-      document.getElementById('attempts').textContent = attempts;
-
-      if (attempts === 0) {
-        flashMessage(`😢 Perdiste. El número era ${secretNumber}.`, 'loser');
-        disableInput();
-      }
-    }
-
-    // Desactivar input y botones
-    function disableInput() {
-      document.getElementById('guess').disabled = true;
-      document.querySelector('button').disabled = true;
-    }
-
-    // Reiniciar el juego
-    function resetGame() {
-      secretNumber = Math.floor(Math.random() * 100) + 1;
-      attempts = 10;
-      document.getElementById('guess').disabled = false;
-      document.querySelector('button').disabled = false;
-      document.getElementById('guess').value = '';
-      document.getElementById('attempts').textContent = attempts;
-      flashMessage('', '');
-    }
-
-    // Celebración visual al ganar
-    function celebrate() {
-      document.body.style.background = 'linear-gradient(to right, #00c851, #ff4444)';
-      setTimeout(() => {
-        document.body.style.background = 'linear-gradient(to right, #00c6ff, #0072ff)';
-      }, 2000);
-    }
-  </script>
+        setInterval(actualizarReloj, 1000);
+        actualizarReloj(); // Llamar para que aparezca la hora de inmediato
+    </script>
 </body>
 </html>
