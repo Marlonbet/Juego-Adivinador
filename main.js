@@ -57,4 +57,5 @@ function resetGame() {
   document.getElementById('guess').value = '';
   document.getElementById('attempts').textContent = attempts;
   flashMessage('', '');
+document.getElementById('progress-bar').style.width = '100%';
 }
