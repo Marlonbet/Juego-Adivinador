@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Pantalla Principal</title>
-  <!-- Referencia al archivo CSS -->
+  <!-- Referencia al archivo CSS común -->
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -12,40 +12,21 @@
   <div id="main-screen" class="screen active">
     <h1>¡Selecciona un Juego!</h1>
     <div class="menu">
-      <button onclick="changeView('guess-game')">🎲 Adivina el Número</button>
+      <button onclick="window.location.href='adivina-numero.html'">🎲 Adivina el Número</button>
+      <button onclick="window.location.href='adivina-palabra.html'">📖 Adivina la Palabra</button>
       <button onclick="changeView('coming-soon')">🔒 Próximamente</button>
     </div>
-  </div>
-
-  <!-- Botón flotante -->
-  <div class="floating-button" onclick="reloadPage()">🔄</div>
-
-  <!-- Pantalla del Juego "Adivina el Número" -->
-  <div id="guess-game" class="screen">
-    <h1>¡Adivina el Número!</h1>
-
-    <div class="game-container">
-      <p>Intenta adivinar el número secreto entre <strong>1 y 100</strong>.</p>
-      <p class="attempts">Intentos restantes: <span id="attempts">10</span></p>
-
-      <div class="attempt-bar">
-        <div id="progress-bar"></div>
-      </div>
-
-      <input type="number" id="guess" min="1" max="100" placeholder="Ingresa tu número">
-      <button id="check-btn" onclick="checkGuess()">Adivinar</button>
-      <p class="message" id="message" aria-live="polite"></p>
-    </div>
-
-    <button class="reset" onclick="resetGame()">Reiniciar Juego</button>
-    <button onclick="changeView('main-screen')">⬅️ Volver</button>
   </div>
 
   <!-- Pantalla de Juegos Próximos -->
   <div id="coming-soon" class="screen">
     <h1>🔒 Juegos Próximamente</h1>
     <p>Estamos trabajando en más juegos para ti.</p>
+    <button onclick="changeView('main-screen')">⬅️ Volver</button> <!-- Volver a la pantalla principal -->
   </div>
+
+  <!-- Botón flotante -->
+  <div class="floating-button" onclick="reloadPage()">🔄</div>
 
   <script src="main.js"></script>
 </body>
