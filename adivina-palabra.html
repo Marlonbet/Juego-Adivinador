@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Adivina la Palabra</title>
+  <link rel="stylesheet" href="adivina-palabra.css">
+</head>
+<body>
+
+  <!-- Pantalla del Juego "Adivina la Palabra" -->
+  <div id="guess-word-game" class="screen active">
+    <h1>¡Adivina la Palabra!</h1>
+    <div class="game-container">
+      <p><strong>Pista:</strong> <span id="word-hint">Esta es la pista</span></p>
+      <p class="attempts">Intentos restantes: <span id="word-attempts">5</span></p>
+      <input type="text" id="word-guess" placeholder="Ingresa tu palabra">
+      <button id="word-check-btn" onclick="checkWordGuess()">Adivinar</button>
+      <p class="message" id="word-message" aria-live="polite"></p>
+    </div>
+    <button class="reset" onclick="resetWordGame()">Reiniciar Juego</button>
+    <button onclick="window.location.href='index.html'">⬅️ Volver</button>
+  </div>
+
+  <script src="adivina-palabra.js"></script>
+</body>
+</html>
