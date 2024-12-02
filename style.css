@@ -28,107 +28,6 @@ h1 {
   background-color: #f57c00;
 }
 
-button.reset {
-  background-color: #e91e63;
-}
-
-button.reset:hover {
-  background-color: #c2185b;
-}
-
-.screen {
-  display: none;
-  padding: 20px;
-}
-
-.screen.active {
-  display: block;
-}
-
-input {
-  font-size: 1.2em;
-  padding: 10px;
-  width: 80%;
-  max-width: 200px;
-  border: 1px solid #fff;
-  border-radius: 10px;
-  margin: 10px 0;
-  outline: none;
-  background: rgba(255, 255, 255, 0.8);
-}
-
-button {
-  font-size: 1.2em;
-  padding: 10px 20px;
-  margin: 10px;
-  border: none;
-  border-radius: 10px;
-  background-color: #ff9800;
-  color: white;
-  cursor: pointer;
-  transition: 0.3s ease;
-}
-
-button:hover {
-  background-color: #f57c00;
-}
-
-button:disabled {
-  background-color: gray;
-  cursor: not-allowed;
-}
-
-.message {
-  font-size: 1.2em;
-  margin: 20px 0;
-  line-height: 1.5;
-}
-
-.winner {
-  font-size: 1.5em;
-  font-weight: bold;
-  color: #4caf50;
-}
-
-.loser {
-  font-size: 1.5em;
-  font-weight: bold;
-  color: #f44336;
-}
-
-.attempts {
-  font-size: 1.2em;
-  margin-top: 10px;
-}
-
-.attempt-bar {
-  background: white;
-  height: 10px;
-  border-radius: 5px;
-  overflow: hidden;
-  margin: 10px auto;
-  width: 90%;
-  max-width: 300px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-}
-
-.attempt-bar div {
-  height: 100%;
-  background: #ff9800;
-  width: 100%;
-  transition: width 0.3s ease-in-out;
-}
-
-.game-container {
-  background: rgba(0, 0, 0, 0.6);
-  padding: 20px;
-  margin: 20px auto;
-  border-radius: 15px;
-  width: 90%;
-  max-width: 400px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
-}
-
 .floating-button {
   position: fixed;
   bottom: 20px;
@@ -152,17 +51,41 @@ button:disabled {
   transform: scale(1.1); /* Efecto de agrandamiento */
 }
 
-@media (max-width: 600px) {
-  h1 {
-    font-size: 2em;
-  }
+.screen {
+  display: none;
+  padding: 20px;
+}
 
-  button {
-    font-size: 1em;
-    padding: 10px 15px;
-  }
+.screen.active {
+  display: block;
+}
 
-  input {
-    font-size: 1em;
-  }
+/* Estilos comunes */
+button {
+  font-size: 1.2em;
+  padding: 10px 20px;
+  margin: 10px;
+  border: none;
+  border-radius: 10px;
+  background-color: #ff9800;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+button:hover {
+  background-color: #f57c00;
+}
+
+button:disabled {
+  background-color: gray;
+  cursor: not-allowed;
+}
+
+button.reset {
+  background-color: #e91e63;
+}
+
+button.reset:hover {
+  background-color: #c2185b;
 }
