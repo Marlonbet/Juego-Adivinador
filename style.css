@@ -73,6 +73,11 @@ button:hover {
   background-color: #f57c00;
 }
 
+button:disabled {
+  background-color: gray;
+  cursor: not-allowed;
+}
+
 .message {
   font-size: 1.2em;
   margin: 20px 0;
@@ -124,9 +129,27 @@ button:hover {
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
 }
 
-button:disabled {
-  background-color: gray;
-  cursor: not-allowed;
+.floating-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 50px;
+  height: 50px;
+  background-color: #2196f3; /* Azul */
+  color: white;
+  font-size: 24px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.floating-button:hover {
+  background-color: #1976d2; /* Azul oscuro */
+  transform: scale(1.1); /* Efecto de agrandamiento */
 }
 
 @media (max-width: 600px) {
