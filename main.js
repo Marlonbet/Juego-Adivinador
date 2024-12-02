@@ -59,3 +59,7 @@ function resetGame() {
   flashMessage('', '');
 document.getElementById('progress-bar').style.width = '100%';
 }
+
+function reloadPage() {
+  location.reload(); // Recarga la página actual
+}
