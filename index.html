@@ -14,9 +14,11 @@
     <div class="menu">
       <button onclick="changeView('guess-game')">🎲 Adivina el Número</button>
       <button onclick="changeView('coming-soon')">🔒 Próximamente</button>
-    <button onclick="reloadPage()">🔄 Actualizar Página</button>
     </div>
   </div>
+
+  <!-- Botón flotante -->
+  <div class="floating-button" onclick="reloadPage()">🔄</div>
 
   <!-- Pantalla del Juego "Adivina el Número" -->
   <div id="guess-game" class="screen">
@@ -43,7 +45,6 @@
   <div id="coming-soon" class="screen">
     <h1>🔒 Juegos Próximamente</h1>
     <p>Estamos trabajando en más juegos para ti.</p>
-    <button onclick="changeView('main-screen')">⬅️ Volver</button>
   </div>
 
   <script src="main.js"></script>
