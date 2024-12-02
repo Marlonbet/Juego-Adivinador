@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Adivina el Número</title>
+  <link rel="stylesheet" href="adivina-numero.css">
+</head>
+<body>
+
+  <!-- Pantalla del Juego "Adivina el Número" -->
+  <div id="guess-game" class="screen active">
+    <h1>¡Adivina el Número!</h1>
+    <div class="game-container">
+      <p>Intenta adivinar el número secreto entre <strong>1 y 100</strong>.</p>
+      <p class="attempts">Intentos restantes: <span id="attempts">10</span></p>
+      <div class="attempt-bar">
+        <div id="progress-bar"></div>
+      </div>
+      <input type="number" id="guess" min="1" max="100" placeholder="Ingresa tu número">
+      <button id="check-btn" onclick="checkGuess()">Adivinar</button>
+      <p class="message" id="message" aria-live="polite"></p>
+    </div>
+    <button class="reset" onclick="resetGame()">Reiniciar Juego</button>
+    <button onclick="window.location.href='index.html'">⬅️ Volver</button>
+  </div>
+
+  <script src="adivina-numero.js"></script>
+</body>
+</html>
