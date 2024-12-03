@@ -4,11 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Pantalla Principal</title>
-  <!-- Referencia al archivo CSS común -->
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- Pantalla Principal -->
   <div id="main-screen" class="screen active">
     <h1>¡Selecciona un Juego!</h1>
     <div class="menu">
@@ -18,16 +16,27 @@
     </div>
   </div>
 
-  <!-- Pantalla de Juegos Próximos -->
   <div id="coming-soon" class="screen">
     <h1>🔒 Juegos Próximamente</h1>
     <p>Estamos trabajando en más juegos para ti.</p>
-    <button onclick="changeView('main-screen')">⬅️ Volver</button> <!-- Volver a la pantalla principal -->
+    <button onclick="changeView('main-screen')">⬅️ Volver</button>
   </div>
 
-  <!-- Botón flotante -->
   <div class="floating-button" onclick="reloadPage()">🔄</div>
 
   <script src="main.js"></script>
+
+  <!-- Registrar el Service Worker -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('sw.js').then(reg => {
+          console.log('Service Worker registrado con éxito:', reg);
+        }).catch(err => {
+          console.error('Error al registrar el Service Worker:', err);
+        });
+      });
+    }
+  </script>
 </body>
 </html>
