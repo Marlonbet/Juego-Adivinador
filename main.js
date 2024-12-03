@@ -1,10 +1,7 @@
 // Cambio de vistas dinámico
 function changeView(viewId) {
-  // Oculta todas las pantallas
   const screens = document.querySelectorAll('.screen');
   screens.forEach(screen => screen.classList.remove('active'));
-  
-  // Muestra la pantalla seleccionada
   document.getElementById(viewId).classList.add('active');
 }
 
@@ -12,3 +9,8 @@ function changeView(viewId) {
 function reloadPage() {
   location.reload();
 }
+
+// Mostrar alerta si no hay conexión
+window.addEventListener('offline', () => {
+  alert('Estás sin conexión. Algunas funciones pueden no estar disponibles.');
+});
