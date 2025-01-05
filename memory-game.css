@@ -1,0 +1,176 @@
+/* Variables de tema */
+:root {
+  --primary-color: #0072ff;
+  --secondary-color: #00c6ff;
+  --accent-color: #ff9800;
+  --success-color: #28a745;
+  --danger-color: #ff5733;
+  --text-light: #fff;
+  --text-dark: #333;
+}
+
+/* Estilo base */
+body {
+  font-family: 'Arial', sans-serif;
+  background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+  color: var(--text-light);
+  margin: 0;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+}
+
+h1 {
+  font-size: 2.5em;
+  margin: 20px 0;
+}
+
+p {
+  font-size: 1.2em;
+  margin-bottom: 20px;
+}
+
+/* Botón volver */
+.controls {
+  margin-bottom: 20px;
+}
+
+.controls button {
+  font-size: 1em;
+  padding: 10px 20px;
+  margin: 10px;
+  border: none;
+  border-radius: 10px;
+  background-color: var(--accent-color);
+  color: var(--text-light);
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.controls button:hover {
+  background-color: var(--danger-color);
+}
+
+.controls button.back {
+  background-color: #2196f3; /* Azul */
+}
+
+.controls button.back:hover {
+  background-color: #1976d2; /* Azul oscuro */
+}
+
+/* Tablero del juego */
+.game-board {
+  display: grid;
+  gap: 10px;
+  justify-content: center;
+  margin: 0 auto;
+  max-width: 90%;
+  flex-grow: 1;
+}
+
+.game-board.easy {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.game-board.medium {
+  grid-template-columns: repeat(6, 1fr);
+}
+
+.game-board.hard {
+  grid-template-columns: repeat(8, 1fr);
+}
+
+/* Tarjetas */
+.card {
+  position: relative;
+  width: 100%;
+  padding-top: 100%; /* Proporción cuadrada */
+  background-color: var(--accent-color);
+  border-radius: 10px;
+  cursor: pointer;
+  transition: transform 0.3s, background-color 0.3s;
+}
+
+.card .card-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2em;
+  color: var(--text-light);
+  backface-visibility: hidden;
+  transform: rotateY(180deg);
+  background-color: var(--primary-color);
+  border-radius: 10px;
+}
+
+.card.flipped .card-content {
+  transform: rotateY(0);
+}
+
+.card.matched {
+  background-color: var(--success-color);
+  pointer-events: none;
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2em;
+  }
+
+  p {
+    font-size: 1em;
+  }
+
+  .controls button {
+    font-size: 0.9em;
+    padding: 8px 16px;
+  }
+
+  .game-board {
+    gap: 8px;
+  }
+
+  .card {
+    padding-top: 90%;
+  }
+
+  .card .card-content {
+    font-size: 1.5em;
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 1.5em;
+  }
+
+  p {
+    font-size: 0.9em;
+  }
+
+  .controls button {
+    font-size: 0.8em;
+    padding: 6px 12px;
+  }
+
+  .game-board {
+    gap: 5px;
+  }
+
+  .card {
+    padding-top: 80%;
+  }
+
+  .card .card-content {
+    font-size: 1.2em;
+  }
+}
